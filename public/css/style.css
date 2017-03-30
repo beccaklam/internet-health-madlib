@@ -20,3 +20,8 @@ h1 {
   background-color: purple;
   padding: 20px;
 }
+
+.output-container {
+  display: flex;
+  flex-direction: column-reverse;
+}
