@@ -10,8 +10,10 @@
     "node": "4.6.0"
   },
   "dependencies": {
+    "body-parser": "1.17.1",
     "express": "4.15.2",
     "google-spreadsheet": "2.0.3",
-    "habitat": "^3.1.2"
+    "habitat": "3.1.2",
+    "request": "2.81.0"
   }
 }
