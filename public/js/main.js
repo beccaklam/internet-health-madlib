@@ -6,7 +6,7 @@ $(document).ready(function() {
     callback = callback || function() {};
 
     http.onreadystatechange = function() {
-      if (this.readyState === 4 && this.status === 200) {
+      if (this.readyState == 4 && this.status == 200) {
         callback("success");
       }
     };
@@ -22,7 +22,7 @@ $(document).ready(function() {
     callback = callback || function() {};
 
     http.onreadystatechange = function() {
-      if (this.readyState === 4 && this.status === 200) {
+      if (this.readyState == 4 && this.status == 200) {
         var result = JSON.parse(this.responseText);
         callback(result);
       }
@@ -31,4 +31,7 @@ $(document).ready(function() {
     http.open("GET", url, true);
     http.send();
   }
+
+  window.addToSheets = addToSheets;
+  window.readFromSheets = readFromSheets;
 });
