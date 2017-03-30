@@ -45,15 +45,16 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   function updateOutput(){
-    outputContainer.innerHTML = '';
+    var cacheElement = document.createElement("div");
     readFromSheets(function(rows){
       rows.forEach(function(row){
         var rowElement = document.createElement('div');
         rowElement.textContent = row.field;
-        outputContainer.appendChild(rowElement);
+        cacheElement.appendChild(rowElement);
       });
+      outputContainer.innerHTML = cacheElement.innerHTML;
+      window.setTimeout(updateOutput, 3000);
     });
-    window.setTimeout(updateOutput, 3000);
   }
 
   updateOutput();
