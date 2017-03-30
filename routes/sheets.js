@@ -1,6 +1,13 @@
 var GoogleSpreadsheet = require('google-spreadsheet');
 var request = require("request");
 
+var lru = require('lru-cache');
+var cache = lru({
+  max: 100000,
+  maxAge: 3000,
+  length: function(n, key){return n.length}
+});
+
 var sheets = {
   "add": function(req, res) {
     var doc = new GoogleSpreadsheet('1DiYGiYHZbdrL0Jb0cPKIqrc7La3LWYr6wmqIIKjB9IA');
@@ -30,6 +37,13 @@ var sheets = {
     
   },
   "read": function(req, res) {
+
+    var rows = cache.get("rows");
+    if (typeof rows !== 'undefined') {
+      res.json(rows);
+      return;
+    }
+
     var doc = new GoogleSpreadsheet('1DiYGiYHZbdrL0Jb0cPKIqrc7La3LWYr6wmqIIKjB9IA');
 
     doc.getRows(1, {}, function(err, results) {
@@ -42,6 +56,8 @@ var sheets = {
             field: obj.field
           };
         });
+
+        cache.set("rows", rows);
 
         res.json(rows);
       }
