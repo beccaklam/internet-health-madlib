@@ -1,15 +1,43 @@
+@font-face {
+  font-family: "Zilla-Light";
+  src: url(Zilla-Light.otf);
+}
 
-body {
-  background: purple;
+  body {
+  background: #cb75ce;
   font-family: "Zilla-Light", "Arvo","Fira Sans", "Helvetica Neue", "Arial", sans-serif;
 }
 
-h1 {
+h1, .output-container div {
   font-size: 5rem;
-  color: #000;
-  background-color: yellow;
-  padding: 5px 15px 15px;
+  color: #cb75ce;
+  padding: 0px 15px 35px;
   display: inline-block;
+}
+
+h1 {
+  background: #fff;
+}
+
+.output-container div {
+  clear: both;
+  float: left;
+}
+
+div:nth-child(4n+1) {
+  background: #85d1f3;
+}
+
+div:nth-child(4n+2) {
+  background: #fd8d90;
+}
+
+div:nth-child(4n+3) {
+  background: #feeb35;
+}
+
+div:nth-child(4n+4) {
+  background: #b0b3e7;
 }
 
 .input {
@@ -17,6 +45,7 @@ h1 {
   font-size: 5rem;
   font-family: "Zilla-Light", "Arvo","Fira Sans", "Helvetica Neue", "Arial", sans-serif;
   color: #fff;
-  background-color: purple;
+  background-color: #cb75ce;
   padding: 20px;
+  height: 6rem;
 }

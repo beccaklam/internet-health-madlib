@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
     http.open("GET", url, true);
     http.send();
   }
+
   var outputContainer = document.querySelector('.output-container');
   var inputElement = document.querySelector('.input');
   inputElement.addEventListener('keydown', function(e){
