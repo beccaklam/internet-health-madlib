@@ -34,12 +34,17 @@ document.addEventListener('DOMContentLoaded', function() {
   var outputContainer = document.querySelector('.output-container');
   var inputElement = document.querySelector('.input');
   inputElement.addEventListener('keydown', function(e){
-    var value = inputElement.value.trim();
+    var value = inputElement.value.trim().slice(0, 140);
     if(value && e.keyCode === 13){
       var rowElement = document.createElement('div');
+      var firstChild = outputContainer.firstChild;
       rowElement.textContent = value;
       inputElement.value = '';
-      outputContainer.appendChild(rowElement);
+      if (!firstChild) {
+        outputContainer.appendChild(rowElement);
+      } else {
+        outputContainer.insertBefore(rowElement, outputContainer.firstChild);
+      }
       addToSheets(value);
     }
   });
@@ -53,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
         cacheElement.appendChild(rowElement);
       });
       outputContainer.innerHTML = cacheElement.innerHTML;
-      window.setTimeout(updateOutput, 3000);
+      window.setTimeout(updateOutput, 8000);
     });
   }
 
