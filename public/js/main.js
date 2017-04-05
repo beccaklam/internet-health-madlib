@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
         cacheElement.appendChild(rowElement);
       });
       outputContainer.innerHTML = cacheElement.innerHTML;
-      window.setTimeout(updateOutput, 8000);
+      window.setTimeout(updateOutput, 4000);
     });
   }
 
