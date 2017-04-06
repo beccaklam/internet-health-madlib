@@ -1,17 +1,59 @@
-@font-face {
-  font-family: "Zilla-Light";
-  src: url(Zilla-Light.otf);
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
-  body {
+@font-face {
+  font-family: "ZillaSlab-Light";
+  src: url(./ZillaSlab-Light.woff);
+}
+
+@font-face {
+  font-family: "ZillaSlab-SemiBold";
+  src: url(./ZillaSlab-SemiBold.woff);
+}
+
+p {
+  font-size: 36px;
+}
+
+body {
   background: #cb75ce;
-  font-family: "Zilla-Light", "Arvo","Fira Sans", "Helvetica Neue", "Arial", sans-serif;
+  font-family: "ZillaSlab-Light", "Arvo","Fira Sans", "Helvetica Neue", "Arial", sans-serif;
+}
+
+h1, .input {
+  position: fixed;
+}
+
+.input {
+  top: 6.25rem;
+  border: 0;
+  font-size: 5rem;
+  font-family: "ZillaSlab-Light", "Arvo","Fira Sans", "Helvetica Neue", "Arial", sans-serif;
+  color: #fff;
+  background-color: #cb75ce;;
+  height: 6rem;
+  padding: 20px;
+}
+
+input:focus::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
 }
 
 h1, .output-container div {
   font-size: 5rem;
   color: #cb75ce;
-  padding: 0px 15px 35px;
+  padding: 5px 10px 15px;
   display: inline-block;
 }
 
@@ -20,32 +62,61 @@ h1 {
 }
 
 .output-container div {
+  position: relative;
   clear: both;
   float: left;
+  top: 15rem;
+  z-index: -1;
 }
 
 div:nth-child(4n+1) {
-  background: #85d1f3;
+  background: #FFF587;
 }
 
 div:nth-child(4n+2) {
-  background: #fd8d90;
+  background: #D4EB88;
 }
 
 div:nth-child(4n+3) {
-  background: #feeb35;
+  background: #FFDA85;
 }
 
 div:nth-child(4n+4) {
-  background: #b0b3e7;
+  background: #C2E8F9;
 }
 
-.input {
-  border: 0;
-  font-size: 5rem;
-  font-family: "Zilla-Light", "Arvo","Fira Sans", "Helvetica Neue", "Arial", sans-serif;
+div.thankyou {
+  background: #000;
   color: #fff;
-  background-color: #cb75ce;
-  padding: 20px;
-  height: 6rem;
+  position: fixed;
+  bottom: -250px;
+  width: 100%;
+  text-align: center;
+  line-height: 42px;
+  transition: bottom 1s ease;
+  height: 250px;
+}
+
+div.thankyou p {
+  padding: 10px 200px;
+}
+
+div.thankyou.show {
+  bottom: 0;
+}
+
+div.thankyou a {
+  font-family: "ZillaSlab-SemiBold", "Arvo","Fira Sans", "Helvetica Neue", "Arial", sans-serif;
+  color: #fff;
+}
+
+div.thankyou a:hover {
+  background: #fff;
+  color: #000;
+  text-decoration: none;
+}
+
+.close {
+  position: relative;
+  top: 0;
 }

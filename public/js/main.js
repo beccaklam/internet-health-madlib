@@ -36,7 +36,8 @@ document.addEventListener('DOMContentLoaded', function() {
   var inputElement = document.querySelector('.input');
   inputElement.addEventListener('keydown', function(e){
     var value = inputElement.value.trim().slice(0, 140);
-    if(value && e.keyCode === 13){
+    if(value && e.keyCode === 13) {
+      document.querySelector('.thankyou').classList.add('show');
       var rowElement = document.createElement('div');
       var firstChild = outputContainer.firstChild;
       rowElement.textContent = value;
@@ -49,6 +50,8 @@ document.addEventListener('DOMContentLoaded', function() {
       addToSheets(value);
     }
   });
+
+  inputElement.focus();
 
   function updateOutput(){
     var cacheElement = document.createElement("div");
