@@ -15,14 +15,24 @@ var cache = lru({
 
 var sheets = {
   "add": function(req, res) {
-    var doc = new GoogleSpreadsheet('1DiYGiYHZbdrL0Jb0cPKIqrc7La3LWYr6wmqIIKjB9IA');
+    var channel = req.params.channel;
     var field = req.body.field;
-    var formData = {
-      "entry.822808207": field
-    };
+
+    var entry = "entry.822808207";
+    var url = "https://docs.google.com/a/mozillafoundation.org/forms/d/e/1FAIpQLSfV0ftx4u7-kjrwkyKfo_CnTZqJyS31ku7l1Uo5zbR6e52HBg/formResponse";
+
+    if (channel === "email") {
+      url = "https://docs.google.com/a/mozillafoundation.org/forms/d/e/1FAIpQLSfpus8QLCU9XWuDKtv4YUqudjCHoWdnPG5gUh-5RqpSkbR3aQ/formResponse";
+    } else if (channel === "snippet") {
+      url = "https://docs.google.com/a/mozillafoundation.org/forms/d/e/1FAIpQLSes41ijlryRi_flk9io6Nbq2Cfco3iUxSnukHGps9qySyIK3w/formResponse";
+    }
+
+    var formData = {};
+    formData[entry] = field;
+
     request({
       method: 'POST',
-      url: "https://docs.google.com/a/mozillafoundation.org/forms/d/e/1FAIpQLSfV0ftx4u7-kjrwkyKfo_CnTZqJyS31ku7l1Uo5zbR6e52HBg/formResponse",
+      url: url,
       form: formData
     }, function(err, payload) {
       if (err) {
@@ -31,25 +41,21 @@ var sheets = {
         res.sendStatus(200);
       }
     });
-
-    /*doc.addRow(1, {field: field, timestamp: "30/03/2017 13:02:09"}, function(err, result) {
-      if (err) {
-        res.status(500).send({error: err});
-      } else {
-        res.send("OK");
-      }
-    });*/
-    
   },
   "read": function(req, res) {
-
-    var rows = cache.get("rows");
+    var channel = req.params.channel;
+    var rows = cache.get(channel);
     if (typeof rows !== 'undefined') {
       res.json(rows);
       return;
     }
 
     var doc = new GoogleSpreadsheet('1DiYGiYHZbdrL0Jb0cPKIqrc7La3LWYr6wmqIIKjB9IA');
+    if (channel === "email") {
+      doc = new GoogleSpreadsheet('1seK0ySZrJA3Qo-U0_UwMimmwWJ_slKr0mVeIbCPxuq8');
+    } else if (channel === "snippet") {
+      doc = new GoogleSpreadsheet('1LjpxVtvBK4N7ncpiSykYYV0y5NZzmvTR20O3cd3II_k');
+    }
 
     doc.getRows(1, {
       limit: 100000,
@@ -70,7 +76,7 @@ var sheets = {
           };
         });
 
-        cache.set("rows", rows);
+        cache.set(channel, rows);
 
         res.json(rows);
       }

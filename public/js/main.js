@@ -1,8 +1,23 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+  var channel = "social";
+  var search = location.search;
+  if (search) {
+    search = search.replace("?", "");
+    search = search.split("&");
+    search.forEach(function(item) {
+      item = item.split("=");
+      if (item[0] === "channel") {
+        if (item[1] === "email" || item[1] === "snippet") {
+          channel = item[1];
+        }
+      }
+    });
+  }
+
   function addToSheets(field, callback) {
     var http = new XMLHttpRequest();
-    var url = "/api/sheets/add";
+    var url = "/api/sheets/add/" + channel;
     callback = callback || function() {};
 
     http.onreadystatechange = function() {
@@ -18,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function readFromSheets(callback) {
     var http = new XMLHttpRequest();
-    var url = "/api/sheets/read";
+    var url = "/api/sheets/read/" + channel;
     callback = callback || function() {};
 
     http.onreadystatechange = function() {
