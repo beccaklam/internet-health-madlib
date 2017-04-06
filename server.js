@@ -7,8 +7,8 @@ var routes = require('./routes');
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
-app.post('/api/sheets/add', routes.sheets.add);
-app.get('/api/sheets/read', routes.sheets.read);
+app.post('/api/sheets/add/:channel', routes.sheets.add);
+app.get('/api/sheets/read/:channel', routes.sheets.read);
 
 app.use(express.static('public'));
 
