@@ -34,8 +34,7 @@ h1, .input {
   font-size: 5rem;
   font-family: "ZillaSlab-Light", "Arvo","Fira Sans", "Helvetica Neue", "Arial", sans-serif;
   color: #fff;
-  background-color: #cb75ce;;
-  height: 6rem;
+  background-color: #cb75ce;
   padding: 20px;
 }
 
@@ -89,16 +88,19 @@ div.thankyou {
   background: #000;
   color: #fff;
   position: fixed;
-  bottom: -250px;
+  bottom: -300px;
   width: 100%;
   text-align: center;
   line-height: 42px;
   transition: bottom 1s ease;
-  height: 250px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 div.thankyou p {
-  padding: 10px 200px;
+  width: 65%;
 }
 
 div.thankyou.show {
@@ -117,6 +119,7 @@ div.thankyou a:hover {
 }
 
 .close {
-  position: relative;
-  top: 0;
+  position: absolute;
+  top: 30px;
+  right: 30px;
 }

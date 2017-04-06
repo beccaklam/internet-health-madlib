@@ -72,4 +72,8 @@ document.addEventListener('DOMContentLoaded', function() {
   window.addToSheets = addToSheets;
   window.readFromSheets = readFromSheets;
 
+  document.querySelector('.close').addEventListener('click', function(){
+    document.querySelector('.thankyou').style.display = 'none';
+  });
+
 });
