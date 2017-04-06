@@ -1,6 +1,11 @@
 var GoogleSpreadsheet = require('google-spreadsheet');
 var request = require("request");
 
+var profanity = require('profam').Profanity();
+profanity.setDownloadUrl(process.env.APPLICATION_URI + '/assets/profanity.json');
+profanity.addLanguages('en');
+profanity.setModes('asterisks-full');
+
 var lru = require('lru-cache');
 var cache = lru({
   max: 14000000,
@@ -56,8 +61,12 @@ var sheets = {
         res.status(500).send({error: err});
       } else {
         rows = results.map(function(obj) {
+          var filteredWord = profanity.run(obj.field)[0]['asterisks-full'];
+          if (filteredWord !== obj.field) {
+            filteredWord = 'unicorns';
+          }
           return {
-            field: obj.field
+            field: filteredWord
           };
         });
 
