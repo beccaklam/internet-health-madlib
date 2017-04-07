@@ -137,6 +137,35 @@ div.thankyou a:hover {
   width: 3.5%;
 }
 
+.waiting span {
+  display: inline-block;
+  animation: snake 1s infinite ease-in-out;
+}
+
+.waiting span:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.waiting span:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.waiting span:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes snake {
+  0% {
+    transform: translateY(0px);
+  }
+  25% {
+    transform: translateY(-4px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+}
+
 @media screen and (max-width: 600px) {
   html {
     font-size: 6px;
