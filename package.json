@@ -13,6 +13,7 @@
     "body-parser": "1.17.1",
     "express": "4.15.2",
     "google-spreadsheet": "2.0.3",
+    "guid": "0.0.12",
     "habitat": "3.1.2",
     "lru-cache": "4.0.2",
     "profam": "2.0.2",

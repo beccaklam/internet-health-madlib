@@ -12,6 +12,7 @@ var cache = lru({
   maxAge: 4000,
   length: function(n, key){return n.length}
 });
+var Guid = require('guid');
 
 var sheets = {
   "add": function(req, res) {
@@ -76,9 +77,14 @@ var sheets = {
           };
         });
 
-        cache.set(channel, rows);
+        var results = {
+          guid: Guid.create(),
+          rows: rows
+        };
 
-        res.json(rows);
+        cache.set(channel, results);
+
+        res.json(results);
       }
     });
   }

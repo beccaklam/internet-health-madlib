@@ -47,41 +47,56 @@ document.addEventListener('DOMContentLoaded', function() {
     http.send();
   }
 
+  var timeOut;
   var outputContainer = document.querySelector('.output-container');
   var inputElement = document.querySelector('.input');
   inputElement.addEventListener('keydown', function(e){
     var value = inputElement.value.trim().slice(0, 140);
     if(value && e.keyCode === 13) {
-      document.querySelector('.thankyou').classList.add('show');
-      var rowElement = document.createElement('div');
-      var firstChild = outputContainer.firstChild;
-      rowElement.textContent = value;
+
       inputElement.value = '';
-      if (!firstChild) {
-        outputContainer.appendChild(rowElement);
-      } else {
-        outputContainer.insertBefore(rowElement, outputContainer.firstChild);
-      }
-      addToSheets(value);
+      document.querySelector('.thankyou').classList.add('show');
+      clearTimeout(timeOut);
+      updateOutput(function() {
+        addToSheets(value, function() {
+          var rowElement = document.createElement('div');
+          var firstChild = outputContainer.firstChild;
+          rowElement.textContent = value;
+          if (!firstChild) {
+            outputContainer.appendChild(rowElement);
+          } else {
+            outputContainer.insertBefore(rowElement, outputContainer.firstChild);
+          }
+        });
+      });
     }
   });
 
   inputElement.focus();
+  var previousGuid = "";
 
-  function updateOutput(){
+  function updateOutput(callback){
+    callback = callback || function() {};
     var cacheElement = document.createElement("div");
-    readFromSheets(function(rows){
-      rows.forEach(function(row){
-        var rowElement = document.createElement('div');
-        rowElement.textContent = row.field;
-        cacheElement.appendChild(rowElement);
-      });
-      outputContainer.innerHTML = cacheElement.innerHTML;
-      window.setTimeout(updateOutput, 4000);
+    readFromSheets(function(data){
+
+      var rows = data.rows;
+      var guid = data.guid;
+      if (guid !== previousGuid) {
+        rows.forEach(function(row){
+          var rowElement = document.createElement('div');
+          rowElement.textContent = row.field;
+          cacheElement.appendChild(rowElement);
+        });
+        outputContainer.innerHTML = cacheElement.innerHTML;
+        previousGuid = guid;
+      }
+      callback();
+      timeOut = window.setTimeout(updateOutput, 4000);
     });
   }
 
-  updateOutput();
+  timeOut = window.setTimeout(updateOutput);
 
 
   window.addToSheets = addToSheets;
