@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   inputElement.addEventListener('keydown', function(e){
-    var value = inputElement.value.trim().slice(0, 140);
+    var value = inputElement.value.trim().slice(0, 50);
     if(value && e.keyCode === 13) {
 
       waiting(true);
