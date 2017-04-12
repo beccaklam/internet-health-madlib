@@ -79,7 +79,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
       waiting(true);
       inputElement.value = '';
-      document.querySelector('.thankyou').classList.add('show');
       clearTimeout(timeOut);
       timeOut = null;
       updateOutput(function() {

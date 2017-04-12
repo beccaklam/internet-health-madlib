@@ -123,14 +123,16 @@ div.thankyou a:hover {
 }
 
 .close {
+  padding: .5rem;
   position: absolute;
-  top: 1.875rem;
-  right: 1.875rem;
+  top: 1.375rem;
+  right: 1.375rem;
   cursor: pointer;
 }
 
 .logo {
-  width: 13.5%;
+  height: 2.4rem;
+  margin-bottom: -.5rem;
 }
 
 .heart {
@@ -181,7 +183,8 @@ div.thankyou a:hover {
     width: 85%;
   }
   .logo {
-    width: 20%;
+    height: 4.6rem;
+    margin-bottom: -.9rem;
   }
   .heart {
     width: 6%;
