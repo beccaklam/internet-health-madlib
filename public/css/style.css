@@ -39,8 +39,20 @@ p {
   padding: 1.25rem;
 }
 
-input:focus::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+input::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+input:-moz-placeholder { /* Firefox 18- */
+  color: rgba(255, 255, 255, 0.6);
+}
+
+input::-moz-placeholder {  /* Firefox 19+ */
+  color: rgba(255, 255, 255, 0.6);
+}
+
+input:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 input:focus,
