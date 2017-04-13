@@ -2,7 +2,7 @@ html {
   box-sizing: border-box;
   font-size: 16px;
   font-family: "ZillaSlab-Light", "Arvo","Fira Sans", "Helvetica Neue", "Arial", sans-serif;
-  background: #cb75ce;
+  background: #613762;
 }
 
 *, *:before, *:after {
@@ -26,7 +26,7 @@ p {
 
 .header-container {
   position: fixed;
-  background: #cb75ce;
+  background: #613762;
   width: 100%;
 }
 
@@ -35,7 +35,7 @@ p {
   font-size: 5rem;
   font-family: "ZillaSlab-Light", "Arvo","Fira Sans", "Helvetica Neue", "Arial", sans-serif;
   color: #fff;
-  background-color: #cb75ce;
+  background-color: #613762;
   padding: 1.25rem;
 }
 
@@ -64,7 +64,7 @@ button:focus {
 
 h1, .output-container div {
   font-size: 5rem;
-  color: #cb75ce;
+  color: #613762;
   padding: 0.3125rem 0.625rem 0.9375rem;
   display: inline-block;
 }
@@ -86,19 +86,19 @@ h1 {
 }
 
 .output-container div:nth-last-child(4n+1) {
-  background: #FFF587;
+  background: #F9EC38;
 }
 
 .output-container div:nth-last-child(4n+2) {
-  background: #D4EB88;
+  background: #EABD2D;
 }
 
 .output-container div:nth-last-child(4n+3) {
-  background: #FFDA85;
+  background: #FD8D90;
 }
 
 .output-container div:nth-last-child(4n+4) {
-  background: #C2E8F9;
+  background: #9ECEF3;
 }
 
 div.thankyou {
