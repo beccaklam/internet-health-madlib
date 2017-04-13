@@ -13,7 +13,6 @@ app.set('trust proxy', true);
 
 app.use(bodyParser.json());
 app.use(compression());
-app.use(helmet());
 app.use(frameguard({
   action: "deny"
 }));
