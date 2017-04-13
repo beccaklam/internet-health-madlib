@@ -10,10 +10,13 @@
   },
   "dependencies": {
     "body-parser": "1.17.1",
+    "compression": "^1.6.2",
     "express": "4.15.2",
     "google-spreadsheet": "2.0.3",
     "guid": "0.0.12",
     "habitat": "3.1.2",
+    "helmet": "^3.5.0",
+    "helmet-csp": "^2.4.0",
     "lru-cache": "4.0.2",
     "profam": "2.0.2",
     "request": "2.81.0"
