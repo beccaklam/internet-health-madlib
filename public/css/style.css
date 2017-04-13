@@ -225,4 +225,10 @@ div.thankyou a:hover {
   .heart {
     width: 6%;
   }
+  .share-button-container a img {
+    height: 30px;
+  }
+  .share-button-container {
+    padding: 4px 18px 3px 5px;
+  }
 }
