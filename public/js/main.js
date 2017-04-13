@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+  var added = 0;
+
   var channel = "social";
   var search = location.search;
   if (search) {
@@ -84,6 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
       updateOutput(function() {
         addToSheets(value, function() {
           waiting(false);
+          added++;
           var rowElement = document.createElement('div');
           var firstChild = outputContainer.firstChild;
           rowElement.textContent = value;
@@ -120,6 +123,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (waitingElement) {
           cacheElement.appendChild(waitingElement);
+        }
+        for (var i = 0; i < added; i++) {
+          rows.push({field: ""});
         }
         rows.forEach(function(row){
           var rowElement = document.createElement('div');
