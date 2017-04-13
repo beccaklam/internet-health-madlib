@@ -8,7 +8,7 @@ profanity.setModes('asterisks-full');
 
 var lru = require('lru-cache');
 var cache = lru({
-  max: 14000000,
+  max: 10000,
   maxAge: 4000,
   length: function(n, key){return n.length}
 });
@@ -59,7 +59,7 @@ var sheets = {
     }
 
     doc.getRows(1, {
-      limit: 100000,
+      limit: 200,
       reverse: true,
       orderby: "timestamp"
     }, function(err, results) {
