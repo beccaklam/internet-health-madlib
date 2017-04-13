@@ -5,7 +5,6 @@ var app = express();
 var routes = require('./routes');
 var compression = require('compression');
 var helmet = require('helmet');
-var frameguard = helmet.frameguard;
 
 var bodyParser = require('body-parser');
 
@@ -13,7 +12,7 @@ app.set('trust proxy', true);
 
 app.use(bodyParser.json());
 app.use(compression());
-app.use(frameguard({
+app.use(helmet.frameguard({
   action: "deny"
 }));
 app.use(helmet.hidePoweredBy());
