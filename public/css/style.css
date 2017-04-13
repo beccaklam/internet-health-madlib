@@ -73,9 +73,14 @@ h1, .output-container div {
   position: absolute;
   top: 240px;
   z-index: -1;
+  width: 100%;
 }
 
 .output-container div {
+  -ms-word-wrap: break-all;
+  -webkit-word-wrap: break-word;
+  word-wrap: break-word;
+  max-width: 100%;
   clear: both;
   float: left;
 }
