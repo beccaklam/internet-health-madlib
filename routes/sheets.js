@@ -68,9 +68,11 @@ var sheets = {
         res.status(500).send({error: err});
       } else {
         rows = results.map(function(obj) {
-          var filteredWord = profanity.run(obj.field)[0]['asterisks-full'];
-          if (filteredWord !== obj.field) {
+          var filteredWord = profanity.run(obj.field.toLowerCase())[0]['asterisks-full'];
+          if (filteredWord !== obj.field.toLowerCase()) {
             filteredWord = 'unicorns';
+          } else {
+            filteredWord = obj.field;
           }
           return {
             field: filteredWord
