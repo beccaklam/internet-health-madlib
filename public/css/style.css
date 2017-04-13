@@ -9,6 +9,8 @@ html {
   box-sizing: inherit;
 }
 
+/*text styling*/
+
 @font-face {
   font-family: "ZillaSlab-Light";
   src: url(./ZillaSlab-Light.woff);
@@ -23,6 +25,20 @@ p {
   font-size: 2.25rem;
   line-height: 2.625rem;
 }
+
+h1 {
+  background: #fff;
+  white-space: nowrap;
+}
+
+h1, .output-container div {
+  font-size: 5rem;
+  color: #613762;
+  padding: 0.3125rem 0.625rem 0.9375rem;
+  display: inline-block;
+}
+
+/*header*/
 
 .header-container {
   position: fixed;
@@ -62,12 +78,19 @@ button:focus {
   outline: none;
 }
 
-h1, .output-container div {
-  font-size: 5rem;
-  color: #613762;
-  padding: 0.3125rem 0.625rem 0.9375rem;
-  display: inline-block;
+.share-button-container {
+  background: rgba(0,0,0, 0.37);
+  padding: 17px 23px;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
+
+.share-button-container:hover {
+  background: #F890FD;
+}
+
+/*output container*/
 
 .output-container {
   position: absolute;
@@ -78,11 +101,6 @@ h1, .output-container div {
 .output-container div {
   clear: both;
   float: left;
-}
-
-h1 {
-  background: #fff;
-  white-space: nowrap;
 }
 
 .output-container div:nth-last-child(4n+1) {
@@ -100,6 +118,8 @@ h1 {
 .output-container div:nth-last-child(4n+4) {
   background: #9ECEF3;
 }
+
+/*modal*/
 
 div.thankyou {
   background: #000;
@@ -151,6 +171,8 @@ div.thankyou a:hover {
   width: 3.5%;
 }
 
+/*waiting animation*/
+
 .waiting span {
   display: inline-block;
   animation: snake 1s infinite ease-in-out;
@@ -179,6 +201,8 @@ div.thankyou a:hover {
     transform: translateY(0px);
   }
 }
+
+/*responsive design*/
 
 @media screen and (max-width: 600px) {
   html {
