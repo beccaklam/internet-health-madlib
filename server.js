@@ -5,6 +5,7 @@ var app = express();
 var routes = require('./routes');
 var compression = require('compression');
 var helmet = require('helmet');
+var path = require('path');
 
 var bodyParser = require('body-parser');
 
@@ -57,6 +58,16 @@ app.use(function(req, res, next){
 
 app.post('/api/sheets/add/:channel', limiter, routes.sheets.add);
 app.get('/api/sheets/read/:channel', routes.sheets.read);
+
+function getIndex(req, res) {
+  if (process.env.DISABLE_INPUT === "true") {
+    return res.sendFile(path.join(__dirname + '/public/abort.html'));
+  }
+  res.sendFile(path.join(__dirname + '/public/index.html'));
+}
+
+app.get('/index.html', getIndex);
+app.get('/', getIndex);
 
 app.use(express.static('public'));
 
