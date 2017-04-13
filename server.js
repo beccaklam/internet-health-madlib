@@ -13,5 +13,5 @@ app.get('/api/sheets/read/:channel', routes.sheets.read);
 app.use(express.static('public'));
 
 app.listen(process.env.PORT, function () {
-  console.log('Example app listening on port ' + process.env.PORT + '!');
+  console.log('Running server at: ' + process.env.PORT + '!');
 });
