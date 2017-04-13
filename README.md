@@ -6,8 +6,8 @@ You can configure the following environment variables:
 
 |Variable|About|
 |--------|-----|
-| PORT | Port for the app, defaults to 4141, feel free to change this to any 4 digit number.
-| APPLICATION_URI | For local dev, this is just http://localhost:4141 unless you changed PORT, which if you did you should update the port here to match.
+| PORT | Port for the app, defaults to 7000, feel free to change this to any 4 digit number.
+| APPLICATION_URI | For local dev, this is just http://localhost:7000 unless you changed PORT, which if you did you should update the port here to match.
 
 ## Setup
 
