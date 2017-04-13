@@ -18,8 +18,6 @@ var limiter = new RateLimit({
   delayMs: 0 // disable delaying - full speed until the max limit is reached
 });
 
-app.use(limiter);
-
 app.use(bodyParser.json());
 app.use(compression());
 app.use(helmet.frameguard({
@@ -57,7 +55,7 @@ app.use(function(req, res, next){
   next();
 });
 
-app.post('/api/sheets/add/:channel', routes.sheets.add);
+app.post('/api/sheets/add/:channel', limiter, routes.sheets.add);
 app.get('/api/sheets/read/:channel', routes.sheets.read);
 
 app.use(express.static('public'));
