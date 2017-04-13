@@ -37,7 +37,7 @@ app.use(helmet.hsts({
   maxAge: 365 * 24 * 60 * 60 * 1000 // 1 year
 }));
 
-app.use(function(req, resp, next){
+app.use(function(req, res, next){
   if (process.env.NODE_ENV === 'production') {
     if (req.headers['x-forwarded-proto'] != 'https') {
       return res.redirect('https://' + req.host + req.url);
