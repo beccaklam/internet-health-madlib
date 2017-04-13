@@ -1,8 +1,7 @@
 {
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "postinstall": "node server.js"
+    "start": "node server.js"
   },
   "author": "Mozilla",
   "license": "MPL-2.0",
