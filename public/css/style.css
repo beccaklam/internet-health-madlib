@@ -9,6 +9,8 @@ html {
   box-sizing: inherit;
 }
 
+/*text styling*/
+
 @font-face {
   font-family: "ZillaSlab-Light";
   src: url(./ZillaSlab-Light.woff);
@@ -20,9 +22,23 @@ html {
 }
 
 p {
-  font-size: 2.25rem;
-  line-height: 2.625rem;
+  font-size: 2rem;
+  line-height: 2.5rem;
 }
+
+h1 {
+  background: #fff;
+  white-space: nowrap;
+}
+
+h1, .output-container div {
+  font-size: 5rem;
+  color: #613762;
+  padding: 0.3125rem 0.625rem 0.9375rem;
+  display: inline-block;
+}
+
+/*header*/
 
 .header-container {
   position: fixed;
@@ -62,12 +78,7 @@ button:focus {
   outline: none;
 }
 
-h1, .output-container div {
-  font-size: 5rem;
-  color: #613762;
-  padding: 0.3125rem 0.625rem 0.9375rem;
-  display: inline-block;
-}
+/*output container*/
 
 .output-container {
   position: absolute;
@@ -83,11 +94,6 @@ h1, .output-container div {
   max-width: 100%;
   clear: both;
   float: left;
-}
-
-h1 {
-  background: #fff;
-  white-space: nowrap;
 }
 
 .output-container div:nth-last-child(4n+1) {
@@ -110,6 +116,8 @@ h1 {
   display: none;
 }
 
+/*modal*/
+
 div.thankyou {
   background: #000;
   color: #fff;
@@ -125,7 +133,7 @@ div.thankyou {
 }
 
 div.thankyou p {
-  width: 65%;
+  width: 70%;
 }
 
 div.thankyou.show {
@@ -135,10 +143,11 @@ div.thankyou.show {
 div.thankyou a {
   font-family: "ZillaSlab-SemiBold", "Arvo","Fira Sans", "Helvetica Neue", "Arial", sans-serif;
   color: #fff;
+  padding: 0px 0.25rem;
 }
 
 div.thankyou a:hover {
-  background: #fff;
+  background: #F890FD;
   color: #000;
   text-decoration: none;
 }
@@ -152,13 +161,14 @@ div.thankyou a:hover {
 }
 
 .logo {
-  height: 2.4rem;
+  height: 2rem;
   margin-bottom: -.5rem;
 }
 
 .heart {
   width: 3.5%;
 }
+/*waiting animation*/
 
 .waiting span {
   display: inline-block;
@@ -189,13 +199,15 @@ div.thankyou a:hover {
   }
 }
 
+/*responsive design*/
+
 @media screen and (max-width: 600px) {
   html {
     font-size: 6px;
   }
   p {
-    font-size: 4.25rem;
-    line-height: 4.8rem;
+    font-size: 3.5rem;
+    line-height: 4.3rem;
   }
   .output-container {
     top: 90px;
@@ -204,8 +216,8 @@ div.thankyou a:hover {
     width: 85%;
   }
   .logo {
-    height: 4.6rem;
-    margin-bottom: -.9rem;
+    height: 3.5rem;
+    margin-bottom: -.8rem;
   }
   .heart {
     width: 6%;
