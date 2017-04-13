@@ -5,7 +5,6 @@ var app = express();
 var routes = require('./routes');
 var compression = require('compression');
 var helmet = require('helmet');
-var csp = require('helmet-csp');
 var frameguard = helmet.frameguard;
 
 var bodyParser = require('body-parser');
@@ -15,20 +14,29 @@ app.set('trust proxy', true);
 app.use(bodyParser.json());
 app.use(compression());
 app.use(helmet());
+app.use(frameguard({
+  action: "deny"
+}));
+app.use(helmet.hidePoweredBy());
+app.use(helmet.ieNoOpen());
+app.use(helmet.noSniff());
+app.use(helmet.xssFilter());
 
-app.use(csp({
+app.use(helmet.contentSecurityPolicy({
   directives:{
+    defaultSrc: [ "'none'" ],
     scriptSrc: ["'self'", "https://*.shpg.org/", "https://www.google-analytics.com/"],
     connectSrc:["'self'"],
     childSrc:["'self'"],
-    frameSrc: ["'self'"],
+    styleSrc:["'self'"],
+    fontSrc:["'self'"],
     imgSrc:["'self'", "https://www.google-analytics.com", "https://*.shpg.org/"],
     frameAncestors: ["'none'"]
   }
 }));
 
 app.use(helmet.hsts({
-  maxAge: 90 * 24 * 60 * 60 * 1000 // 90 days
+  maxAge: 365 * 24 * 60 * 60 * 1000 // 1 year
 }));
 
 app.use(function(req, resp, next){
