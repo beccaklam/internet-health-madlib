@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var added = 0;
 
-  var channel = "social";
+  var channel = "email";
   var search = location.search;
   if (search) {
     search = search.replace("?", "");
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     search.forEach(function(item) {
       item = item.split("=");
       if (item[0] === "channel") {
-        if (item[1] === "email" || item[1] === "snippet") {
+        if (item[1] === "social" || item[1] === "snippet") {
           channel = item[1];
         }
       }
