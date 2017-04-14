@@ -53,6 +53,7 @@ h1, .output-container div {
   color: #fff;
   background-color: #613762;
   padding: 1.25rem;
+  display: block;
 }
 
 input::-webkit-input-placeholder {
@@ -201,7 +202,7 @@ div.thankyou a:hover {
 
 /*responsive design*/
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
   html {
     font-size: 6px;
   }
