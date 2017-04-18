@@ -1,4 +1,6 @@
-# typeoutloud.org
+# science.typeoutloud.org
+
+For historical reasons, this repo is going to be used for science.typeoutloud.org, and we are not going to change the name, just delete it when it's done. Future typeoutloud.org projects are going to be in https://github.com/mozilla/www.typeoutloud.org
 
 ## For when something goes bad and we need to turn off input.
 
