@@ -6,19 +6,20 @@
   "author": "Mozilla",
   "license": "MPL-2.0",
   "engines": {
-    "node": "^6.11.1"
+    "node": "^8.11.2"
   },
   "dependencies": {
-    "body-parser": "1.17.1",
+    "body-parser": "^1.18.3",
     "compression": "^1.6.2",
-    "express": "4.15.2",
+    "express": "^4.16.3",
     "express-rate-limit": "^2.6.0",
-    "google-spreadsheet": "2.0.3",
+    "google-spreadsheet": "^2.0.4",
     "guid": "0.0.12",
     "habitat": "3.1.2",
     "helmet": "^3.5.0",
+    "hoek": "^5.0.3",
     "lru-cache": "4.0.2",
     "profam": "2.0.2",
-    "request": "2.81.0"
+    "request": "^2.86.0"
   }
 }
